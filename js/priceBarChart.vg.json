@@ -1,0 +1,12 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Cheapest Europe cities" },
+    "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "y": { "field": "city", "type": "nominal" },
+        "x": { "field": "daily_cost", "type": "quantitative" }
+    }
+}
