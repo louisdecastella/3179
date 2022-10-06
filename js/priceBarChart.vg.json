@@ -12,6 +12,12 @@
         "aggregate": "median",
         "field": " price ",
         "type": "quantitative"
+      },
+      "y": {
+        "aggregate": "median",
+        "field": " service fee ",
+        "type": "quantitative"
+  
       }
     }
   }
