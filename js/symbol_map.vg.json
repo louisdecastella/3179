@@ -4,7 +4,7 @@
   "height": 450,
   "title": "New york map of Airbnbs",
   "projection": {
-    "type": "albersUsa"
+    "type": "azimuthalEqualArea", "rotate":[74,0,0]
     },
   "layer": [
     {
