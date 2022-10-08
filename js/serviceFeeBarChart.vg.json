@@ -1,0 +1,17 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"},
+    "mark": { "type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+    "encoding": {
+      "x": {
+        "field": "neighbourhood group",
+        "type": "ordinal",
+        "title": "neighbourhood group"
+      },
+      "y": {
+        "aggregate": "median",
+        "field": " service fee ",
+        "type": "quantitative"
+      }
+        }
+  }
