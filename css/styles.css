@@ -2,16 +2,16 @@
 	top:4px;
 	bottom: 4px; 
 	left: 5px;
-	right: 50px;
+	right: 5px;
 	height: 40vw;
 	width: 20vw;
 }
 
 #priceBarChart {
-	top:50px;
-	bottom: 50px; 
-	left: 50px;
-	right: 50px;
+	top:5px;
+	bottom: 5px; 
+	left: 5px;
+	right: 5px;
 	height: 40vw;
 	width: 40vw;
 }
