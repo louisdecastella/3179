@@ -4,7 +4,7 @@
     "mark": { "type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
     "encoding": {
       "x": {
-        "field": "neighbourhood group",
+        "field": "Neighbourhood_group",
         "type": "ordinal",
         "title": "neighbourhood group"
       },
