@@ -19,7 +19,7 @@
         "input": "range",
         "min": 0,
         "max": 1200,
-        "step": 10,
+        "step": 1,
         "name": "Price Higher than: "
       }
     }
