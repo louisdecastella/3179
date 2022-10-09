@@ -14,7 +14,7 @@
   "params": [
     {
       "name": "Price",
-      "value": 2000,
+      "value": 0,
       "bind": {
         "input": "range",
         "min": 0,
@@ -71,16 +71,18 @@
           }
         },
         "opacity": {
-          "value": 0.6
+          "value": 1
         },
         "tooltip": [
           {
             "field": "NAME",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Name Of Airbnb"
           },
           {
             "field": "Room_Type",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Room Type"
           },
           {
             "field": "Neighbourhood",
@@ -88,7 +90,8 @@
           },
           {
             "field": "Price",
-            "type": "nominal"
+            "type": "nominal",
+            "title": "Price: $"
           }
         ]
       }
