@@ -10,7 +10,7 @@
       },
       "y": {
         "aggregate": "median",
-        "field": " price ",
+        "field": "Price",
         "type": "quantitative"
       }
         }
