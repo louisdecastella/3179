@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
-  
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css"
+    integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
+
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/grids-responsive-min.css" />
-  
+
 </head>
+
 <body>
   <div class="pure-g">
     <div class="pure-u-5-5">
       <div id="symbol_map"></div>
-        <script type="text/javascript">
+      <script type="text/javascript">
 
-          var spec2 = "js/symbol_map.vg.json";
-          vegaEmbed('#symbol_map', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          }).catch(console.error);
-        </script>
+        var spec2 = "js/symbol_map.vg.json";
+        vegaEmbed('#symbol_map', spec2).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
     </div>
   </div>
   <div class="pure-g">
 
- 
 
-    
+
+
   </div>
-    <div class="pure-u-2-5">
-      <div id="priceBarChart"></div>
+  <div class="pure-u-2-5">
 
-        <script type="text/javascript">
+    <div id="priceBarChart"></div>
+    <script type="text/javascript">
 
-          var spec2 = "js/priceBarChart.vg.json";
-          vegaEmbed('#priceBarChart', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          }).catch(console.error);
-        </script>
+      var spec2 = "js/priceBarChart.vg.json";
+      vegaEmbed('#priceBarChart', spec2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
 
-    </div>
-    <div class="pure-u-1-5"></div>
-    <div class="pure-u-2-5">
-      <div id="serviceBarChart"></div>
+  </div>
+  <div class="pure-u-1-5"></div>
+  <div class="pure-u-2-5">
 
-        <script type="text/javascript">
+    <div id="serviceBarChart"></div>
+    <script type="text/javascript">
 
-          var spec2 = "js/serviceFeeBarChart.vg.json";
-          vegaEmbed('#serviceBarChart', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-          }).catch(console.error);
-        </script>
-
-    </div>
+      var spec2 = "js/serviceFeeBarChart.vg.json";
+      vegaEmbed('#serviceBarChart', spec2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  
+</div>
   </div>
   </div>
 
@@ -65,4 +68,5 @@
 
 
 </body>
+
 </html>
