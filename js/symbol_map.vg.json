@@ -3,9 +3,7 @@
   "width": 800,
   "height": 450,
   "title": "New york map of Airbnbs",
-  "projection": {
-    "type": "azimuthalEqualArea", "rotate":[74,0,0]
-    },
+  "projection": {"type": "azimuthalEqualArea", "rotate": [74, 0, 0]},
   "layer": [
     {
       "data": {
@@ -16,26 +14,55 @@
     },
     {
       "data": {
-      "url":
-      "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
       },
-      "mark": {"type": "circle", "tooltip": {"content": "data"}},
+      
+     "params": [
+       { 
+         "name": "room type",
+         "bind": {
+          "input": "select",
+           "options": [
+             null,
+             "Entire home/apt",
+             "Private room",
+             "Shared room"
+           ],
+            "labels": [
+             "Show all",
+             "Entire home/apt",
+             "Private room",
+             "Shared room"
+           ],
+           "name": "room rype"
+         }
+       }
+     ], 
+     "mark":"circle",
+     "transform": [
+       {
+         "filter": "room type == null || datum.room type == room type"
+       }
+     ],
+
       "encoding": {
-      "longitude": {
-        "field": "longditude",
-         "type":"quantitative"
+        "longitude": {"field": "longditude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "color": {
+          "field": " price ",
+          "type": "quantitative",
+          "title": "Price",
+          "scale": {"scheme": "reds"}
         },
-      "latitude": {
-        "field": "latitude", 
-        "type":"quantitative"
-      },
-      "color": {
-      "field": "Construction year",
-      "type": "quantitative",
-      "title": "Construction Year",
-      "scale": {"scheme": "reds"}
+        "tooltip": [
+{"field": "NAME", "type": "nominal"},
+{"field": "room type", "type": "nominal"},
+{"field": "neighbourhood", "type": "nominal"},
+{"field": " price ", "type": "nominal"}
+
+]
+
       }
-      }
-      }
-      ]
-      }
+    }
+  ]
+}
