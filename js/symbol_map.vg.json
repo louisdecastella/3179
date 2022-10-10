@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "width": 400,
   "height": 450,
   "title": "New york map of Airbnbs",
   "projection": {
