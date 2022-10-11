@@ -1,31 +1,37 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"},
-    "width": 300,
-    "mark": { "type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
-    "encoding": {
-      "x": {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+  },
+  "width": 300,
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 3,
+    "cornerRadiusTopRight": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "Neighbourhood_group",
+      "type": "ordinal",
+      "title": "neighbourhood group"
+    },
+    "y": {
+      "aggregate": "median",
+      "field": "Service_fee",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {
         "field": "Neighbourhood_group",
-        "type": "ordinal",
-        "title": "neighbourhood group"
+        "type": "nominal",
+        "title": "Neighbourhood Group"
       },
-      "y": {
+      {
         "aggregate": "median",
-        "field": "Service_fee",
-        "type": "quantitative"
-      },
-      "tooltip": [
-        {
-            "field": "Neighbourhood_group",
-            "type": "nominal",
-            "title": "Neighbourhood Group"
-        },
-        {
-          "aggregate": "median",
-          "field": "Price",
-          "type": "nominal",
-          "title": "Price: $"
-        }
-      ]
-        }
+        "field": "Price",
+        "type": "nominal",
+        "title": "Price: $"
+      }
+    ]
   }
+}
