@@ -13,6 +13,18 @@
         "aggregate": "median",
         "field": "Price",
         "type": "quantitative"
-      }
+      },
+      "tooltip": [
+        {
+            "field": "Neighbourhood_group",
+            "type": "nominal"
+        },
+        {
+          "aggregate": "median",
+          "field": "Price",
+          "type": "nominal",
+          "title": "Price: $"
+        },
+
         }
   }
