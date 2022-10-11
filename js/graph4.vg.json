@@ -6,18 +6,93 @@
     "data": {
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
     },
+    "params": [
+        {
+            "name": "Review_rate_number",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 5,
+                "step": 1,
+                "name": "Review scores higher than: "
+            }
+        },
+        {
+            "name": "Price",
+            "value": 1200,
+            "bind": {
+                "input": "range",
+                "min": 50,
+                "max": 1200,
+                "step": 1,
+                "name": "Price less than: "
+            }
+        }
+    ],
     "mark": "point",
+    "transform": [
+        {
+            "filter": "datum.Review_rate_number >= Review_rate_number"
+        },
+        {
+            "filter": "datum.Price <= Price"
+        }
+    ],
     "encoding": {
         "x": {
             "field": "Number_of_reviews",
             "type": "quantitative",
+            "axis": {
+                "tickCount": 5
+            },
             "scale": {
                 "type": "log"
-            }
+            },
+            "title": "Number of reviews (Logarithmically scaled)"
         },
         "y": {
-            "field": "Review_rate_number",
-            "type": "quantitative"
+            "timeUnit": "yearmonthdate",
+            "field": "Last_review",
+            "title": "Most recent review"
+        },
+        "tooltip": [
+            {
+                "field": "NAME",
+                "type": "nominal",
+                "title": "Name Of Airbnb"
+            },
+            {
+                "field": "Room_Type",
+                "type": "nominal",
+                "title": "Room Type"
+            },
+            {
+                "field": "Neighbourhood",
+                "type": "nominal"
+            },
+            {
+                "field": "Price",
+                "type": "nominal",
+                "title": "Price: $"
+            },
+            {
+                "field": "Review_rate_number",
+                "type": "nominal",
+                "title": "Review score out of 5: "
+            }
+        ],
+        "color": {
+            "field": "Price",
+            "type": "quantitative",
+            "title": "Price",
+            "scale": {
+                "scheme": "reds",
+                "domain": [
+                    0,
+                    1200
+                ]
+            }
         }
     }
 }
