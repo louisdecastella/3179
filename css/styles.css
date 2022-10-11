@@ -12,6 +12,7 @@ p, div {
 	right: 50px;
 	height: 40vw;
 	width: 20vw;
+	align-self: center;
 }
 
 #priceBarChart {
@@ -21,6 +22,7 @@ p, div {
 	right: 50px;
 	height: 40vw;
 	width: 40vw;
+	align-self: center;
 }
 
 #serviceBarChart {
@@ -39,4 +41,5 @@ p, div {
 	right: 50px;
 	height: 40vw;
 	width: 20vw;
+	align-self: center;
 }
