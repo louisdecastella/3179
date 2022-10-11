@@ -13,6 +13,19 @@
         "aggregate": "median",
         "field": "Service_fee",
         "type": "quantitative"
-      }
+      },
+      "tooltip": [
+        {
+            "field": "Neighbourhood_group",
+            "type": "nominal",
+            "title": "Neighbourhood Group"
+        },
+        {
+          "aggregate": "median",
+          "field": "Price",
+          "type": "nominal",
+          "title": "Price: $"
+        }
+      ]
         }
   }
