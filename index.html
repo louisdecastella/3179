@@ -91,6 +91,24 @@
     </div>
   </div>
 
+
+  <!--Row 3-->
+  <div class="pure-g">
+    <div class="pure-u-2-5">
+    </div>
+    <div class="pure-u-3-5">
+      <div id="reviews"></div>
+      <script type="text/javascript">
+
+        var spec2 = "js/graph4.vg.json";
+        vegaEmbed('#reviews', spec2).then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+      </script>
+    </div>
+
+    </div>
+  </div>
 </body>
 
 </html>
