@@ -1,13 +1,20 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Open Sans', sans-serif;
 }
-p, div {
-    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+
+p,
+div {
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
 #symbol_map {
-	top:40px;
-	bottom: 40px; 
+	top: 40px;
+	bottom: 40px;
 	left: 50px;
 	right: 50px;
 	height: 40vw;
@@ -16,8 +23,8 @@ p, div {
 }
 
 #priceBarChart {
-	top:50px;
-	bottom: 50px; 
+	top: 50px;
+	bottom: 50px;
 	left: 50px;
 	right: 50px;
 	height: 40vw;
@@ -26,17 +33,18 @@ p, div {
 }
 
 #serviceBarChart {
-	top:50px;
-	bottom: 50px; 
+	top: 50px;
+	bottom: 50px;
 	left: 50px;
 	right: 50px;
 	height: 40vw;
 	width: 40vw;
 	align-self: center;
 }
+
 #reviews {
-	top:40px;
-	bottom: 40px; 
+	top: 40px;
+	bottom: 40px;
 	left: 50px;
 	right: 50px;
 	height: 40vw;
