@@ -31,3 +31,11 @@ p, div {
 	height: 40vw;
 	width: 40vw;
 }
+#reviews {
+	top:40px;
+	bottom: 40px; 
+	left: 50px;
+	right: 50px;
+	height: 40vw;
+	width: 20vw;
+}
