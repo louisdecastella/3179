@@ -32,6 +32,7 @@
         "type": "nominal",
         "title": "Price: $"
       }
-    ]
+    ],
+    "color": {"value": "#f7abab"}
   }
 }
