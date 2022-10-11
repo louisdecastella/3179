@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
+    "width": 600,
     "height": 450,
     "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
     "data": {
