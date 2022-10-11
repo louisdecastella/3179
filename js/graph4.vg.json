@@ -1,0 +1,23 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 450,
+    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+    },
+    "mark": "point",
+    "encoding": {
+        "x": {
+            "field": "Number_of_reviews",
+            "type": "quantitative",
+            "scale": {
+                "type": "log"
+            }
+        },
+        "y": {
+            "field": "Review_rate_number",
+            "type": "quantitative"
+        }
+    }
+}
