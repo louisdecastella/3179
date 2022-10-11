@@ -3,7 +3,7 @@
     "width": 550,
     "height": 450,
     "background": "whitesmoke",
-    "title": "New york map of Airbnbs",
+    "title": "Distance to Points of interest",
     "projection": {
         "type": "azimuthalEqualArea",
         "rotate": [
@@ -12,34 +12,6 @@
             0
         ]
     },
-    "params": [
-        {
-            "name": "Price",
-            "value": 50,
-            "bind": {
-                "input": "range",
-                "min": 50,
-                "max": 1200,
-                "step": 1,
-                "name": "Price Higher than: "
-            }
-        },
-        {
-            "name": "Host_identity_verified",
-            "bind": {
-                "input": "select",
-                "options": [
-                    null,
-                    "verified"
-                ],
-                "labels": [
-                    "All",
-                    "Verified only"
-                ],
-                "name": "Verified Host? "
-            }
-        }
-    ],
     "layer": [
         {
             "data": {
