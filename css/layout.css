@@ -5,4 +5,7 @@ h2 {
     text-align: center;
 }
 
-.pure-g {background-color: whitesmoke;}
+.pure-g {
+    background-color: whitesmoke;
+    width: 85%;
+}
