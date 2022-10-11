@@ -24,7 +24,7 @@
           "field": "Price",
           "type": "nominal",
           "title": "Price: $"
-        },
-
         }
+      ]
+      }
   }
