@@ -30,6 +30,7 @@ p, div {
 	right: 50px;
 	height: 40vw;
 	width: 40vw;
+	align-self: center;
 }
 #reviews {
 	top:40px;
