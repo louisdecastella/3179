@@ -4,12 +4,9 @@
     "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
   },
   "width": 300,
-  "background":"whitesmoke",
-  "mark": {
-    "type": "bar",
-    "cornerRadiusTopLeft": 3,
-    "cornerRadiusTopRight": 3
-  },
+  "title":"Median price of service free",
+  "background": "whitesmoke",
+  "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
   "encoding": {
     "x": {
       "field": "Neighbourhood_group",
@@ -34,6 +31,11 @@
         "title": "Price: $"
       }
     ],
-    "color": {"value": "#f7abab"}
+    "xOffset": {"field": "Room_Type"},
+    "color": {
+        "field": "Room_Type",
+        "scale": {"range": ["#FF5A5F", "#484848","#FC642D"]},
+        "title": "Room Type"
+        }
   }
 }
