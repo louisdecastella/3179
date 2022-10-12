@@ -4,7 +4,7 @@
     "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
   },
   "title":"Median Price to rent Room",
-  "width": 200,
+  "width": 250,
   "background": "whitesmoke",
   "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
   "encoding": {
