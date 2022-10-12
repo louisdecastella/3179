@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
   },
-  "width": 250,
+  "width": 200,
   "title":"Median price of service free",
   "background": "whitesmoke",
   "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
