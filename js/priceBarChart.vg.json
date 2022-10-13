@@ -6,21 +6,29 @@
   "title": "Median Price to rent Room",
   "width": 200,
   "background": "whitesmoke",
-  "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
+  "mark": {
+    "type": "bar",
+    "cornerRadiusTopLeft": 3,
+    "cornerRadiusTopRight": 3
+  },
   "encoding": {
     "x": {
       "field": "Neighbourhood_group",
       "type": "ordinal",
       "title": "neighbourhood group"
     },
-    "y": {"aggregate": "median", "field": "Price", "type": "quantitative"},
+    "y": {
+      "aggregate": "median",
+      "field": "Price",
+      "type": "quantitative"
+    },
     "tooltip": [
       {
         "field": "Neighbourhood_group",
         "type": "nominal",
         "title": "Neighbourhood Group"
       },
-            {
+      {
         "field": "Room_Type",
         "type": "nominal",
         "title": "Room Type"
@@ -32,10 +40,18 @@
         "title": "Median Price: $"
       }
     ],
-    "xOffset": {"field": "Room_Type"},
+    "xOffset": {
+      "field": "Room_Type"
+    },
     "color": {
       "field": "Room_Type",
-      "scale": {"range": ["#FF5A5F", "#484848", "#FC642D"]},
+      "scale": {
+        "range": [
+          "#FF5A5F",
+          "#484848",
+          "#FC642D"
+        ]
+      },
       "title": "Room Type"
     }
   }
