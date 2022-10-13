@@ -3,8 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
   },
-  "title":"Median Price to rent Room",
-  "width": 250,
+  "title": "Median Price to rent Room",
+  "width": 200,
   "background": "whitesmoke",
   "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3},
   "encoding": {
@@ -20,6 +20,11 @@
         "type": "nominal",
         "title": "Neighbourhood Group"
       },
+            {
+        "field": "Room_Type",
+        "type": "nominal",
+        "title": "Room Type"
+      },
       {
         "aggregate": "median",
         "field": "Price",
@@ -29,10 +34,9 @@
     ],
     "xOffset": {"field": "Room_Type"},
     "color": {
-        "field": "Room_Type",
-        "scale": {"range": ["#FF5A5F", "#484848","#FC642D"]},
-        "title": "Room Type"
-        }
-        
+      "field": "Room_Type",
+      "scale": {"range": ["#FF5A5F", "#484848", "#FC642D"]},
+      "title": "Room Type"
+    }
   }
 }
