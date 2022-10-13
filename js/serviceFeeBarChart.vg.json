@@ -25,6 +25,11 @@
         "title": "Neighbourhood Group"
       },
       {
+        "field": "Room_Type",
+        "type": "nominal",
+        "title": "Room Type"
+      },
+      {
         "aggregate": "median",
         "field": "Price",
         "type": "nominal",
