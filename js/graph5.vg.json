@@ -1,41 +1,29 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Interactive map of U.S. airport connections in 2008.",
-  "width": 800,
-  "height": 350,
-  "projections": [
-    {
-      "name": "projection",
-      "type": "azimuthalEqualArea",
-      "rotate": [
-        74,
-        0,
-        0
-      ]
-    }
-  ],
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 550,
+  "height": 450,
+  "background":"whitesmoke",
+  "title": "New york map of Airbnbs",
+  "projection": {
+    "type": "azimuthalEqualArea",
+    "rotate": [
+      74,
+      0,
+      0
+    ]
+  },
+    
   "signals": [
     {
-      "name": "hover",
-      "value": null,
+      "name": "selected", "value": null,
       "on": [
-        {
-          "events": "@cell:mouseover",
-          "update": "datum"
-        },
-        {
-          "events": "@cell:mouseout",
-          "update": "null"
-        }
+        {"events": "symbol:mouseover", "update": "datum"},
+        {"events": "symbol:mouseout", "update": "null"}
       ]
-    },
-    {
-      "name": "title",
-      "value": "U.S. Airports, 2008",
-      "update": "hover ? hover.NAME + ' (' + hover.ID + ')' : 'U.S. Airports, 2008'"
     }
   ],
-  "layers": [
+
+  "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/new_york_map2.topojson",
@@ -49,6 +37,45 @@
         "fill": "lightgray",
         "stroke": "white"
       }
-    }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+      },
+
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+            "data": {
+                "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
+            },
+            "mark": "circle",
+            "encoding": {
+                "longitude": 
+                {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "latitude": 
+                {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "color": {
+                  "value": "red"
+                  }
+            }
+        }
   ]
+
 }
