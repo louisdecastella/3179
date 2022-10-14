@@ -1,229 +1,54 @@
 {
-    "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "description": "Interactive map of U.S. airport connections in 2008.",
-    "width": 900,
-    "height": 560,
-    "padding": {"top": 25, "left": 0, "right": 0, "bottom": 0},
-    "autosize": "none",
-  
-    "signals": [
-      {
-        "name": "hover",
-        "value": null,
-        "on": [
-          {"events": "@cell:mouseover", "update": "datum"},
-          {"events": "@cell:mouseout", "update": "null"}
-        ]
-      },
-      {
-        "name": "title",
-        "value": "U.S. Airports, 2008",
-        "update": "hover ? hover.NAME + ' (' + hover.ID + ')' : 'U.S. Airports, 2008'"
-      }
-    ],
-  
-    "data": [
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Interactive map of U.S. airport connections in 2008.",
+  "width": 800,
+  "height": 350,
+  "projections": [
+    {
+      "name": "projection",
+      "type": "azimuthalEqualArea",
+      "rotate": [
+        74,
+        0,
+        0
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "hover",
+      "value": null,
+      "on": [
         {
-            "name": "pointsofinterest",
-            "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv",
-            "format": {"type": "csv", "parse": "auto"}
+          "events": "@cell:mouseover",
+          "update": "datum"
         },
-      {
-      "name": "start",
-      "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv",
-        "format": {"type": "csv", "parse": "auto"},
-        "transform": [
-          {
-            "type": "aggregate",
-            "groupby": ["origin"],
-            "fields": ["count"], "ops": ["sum"], "as": ["flights"]
-          }
-        ]
-      },
-      {
-          "name": "newyork",
-          "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/new_york_map2.topojson",
-          "format": { "type": "topojson", "feature": "ne_10m_admin_2_counties"},
-          "transform": [
-          {
-            "type": "geopath",
-            "projection": "projection"
-          }
-        ]
-      },
-  
-          {
-            "name": "airbnb",
-            "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv",
-            "format": {"type": "csv", "parse": "auto"},
-        "transform": [
-          {
-            "type": "lookup",
-            "from": "start", "key": "origin",
-            "fields": ["ID"], "as": ["start"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.start != null"
-          },
-          {
-            "type": "geopoint",
-            "projection": "projection",
-            "fields": ["longitude", "latitude"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.x != null && datum.y != null"
-          },
-          {
-            "type": "voronoi", "x": "x", "y": "y"
-          },
-          {
-            "type": "collect", "sort": {
-              "field": "traffic.flights",
-              "order": "descending"
-            }
-          }
-        ]
-      },
-      {
-        "name": "walks",
-        "url": "data/flights-airport.csv",
-        "format": {"type": "csv", "parse": "auto"},
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "hover && hover.ID == datum.origin"
-          },
-          {
-            "type": "lookup",
-            "from": "airbnb", "key": "ID",
-            "fields": ["origin", "destination"], "as": ["source", "target"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.source && datum.target"
-          },
-          {
-            "type": "linkpath"
-          }
-        ]
-      },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      {
-        "name": "states",
-        "url": "data/us-10m.json",
-        "format": {"type": "topojson", "feature": "states"},
-        "transform": [
-          {
-            "type": "geopath",
-            "projection": "projection"
-          }
-        ]
-      },
-      {
-        "name": "traffic",
-        "url": "data/flights-airport.csv",
-        "format": {"type": "csv", "parse": "auto"},
-        "transform": [
-          {
-            "type": "aggregate",
-            "groupby": ["origin"],
-            "fields": ["count"], "ops": ["sum"], "as": ["flights"]
-          }
-        ]
-      },
-      {
-        "name": "airports",
-        "url": "data/airports.csv",
-        "format": {"type": "csv","parse": "auto"
-        },
-        "transform": [
-          {
-            "type": "lookup",
-            "from": "traffic", "key": "origin",
-            "fields": ["iata"], "as": ["traffic"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.traffic != null"
-          },
-          {
-            "type": "geopoint",
-            "projection": "projection",
-            "fields": ["longitude", "latitude"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.x != null && datum.y != null"
-          },
-          {
-            "type": "voronoi", "x": "x", "y": "y"
-          },
-          {
-            "type": "collect", "sort": {
-              "field": "traffic.flights",
-              "order": "descending"
-            }
-          }
-        ]
-      },
-      {
-        "name": "routes",
-        "url": "data/flights-airport.csv",
-        "format": {"type": "csv", "parse": "auto"},
-        "transform": [
-          {
-            "type": "filter",
-            "expr": "hover && hover.iata == datum.origin"
-          },
-          {
-            "type": "lookup",
-            "from": "airports", "key": "iata",
-            "fields": ["origin", "destination"], "as": ["source", "target"]
-          },
-          {
-            "type": "filter",
-            "expr": "datum.source && datum.target"
-          },
-          {
-            "type": "linkpath"
-          }
-        ]
-      }
-    ],
-  
-    "projections": [
-      {
-        "name": "newyork",
-        "type": "albersUsa"
-      }
-    ],
-  
-  
-    "marks": [
         {
-            "type": "path",
-            "from": {"data": "newyork"},
-            "encode": {
-                "enter" :{
-                    "fill": { "value": "#dedede"},
-                    "stroke": {"value": "white"}
-                },
-                "update": {
-                    "path": {"field": "path"}  
-                }
-              }
-          }
-    ]
-  }
-  
+          "events": "@cell:mouseout",
+          "update": "null"
+        }
+      ]
+    },
+    {
+      "name": "title",
+      "value": "U.S. Airports, 2008",
+      "update": "hover ? hover.NAME + ' (' + hover.ID + ')' : 'U.S. Airports, 2008'"
+    }
+  ],
+  "layers": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/new_york_map2.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_2_counties"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "lightgray",
+        "stroke": "white"
+      }
+    }
+  ]
+}
