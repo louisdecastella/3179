@@ -70,7 +70,7 @@
       "mark": "circle",
       "encoding": {
         "longitude": {
-          "field": "Longditude",
+          "field": "Longitude",
           "type": "quantitative"
         },
         "latitude": {
