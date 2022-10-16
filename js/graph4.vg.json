@@ -46,11 +46,12 @@
             "field": "Number_of_reviews",
             "type": "quantitative",
             "axis": {
-                "tickCount": 5,
-                "range": [0,900]
+                "tickCount": 5
             },
             "scale": {
                 "type": "log"
+                ,
+                "domain": [1, 700]
             },
             "title": "Number of reviews (Logarithmically scaled)"
             
