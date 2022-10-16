@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 450,
+    "width": 750,
     "height": 400,
     "background":"whitesmoke",
     "title": "Reviews",
@@ -25,7 +25,7 @@
             "value": 1200,
             "bind": {
                 "input": "range",
-                "min": 50,
+                "min": 51,
                 "max": 1200,
                 "step": 1,
                 "name": "Price less than: "
@@ -46,12 +46,14 @@
             "field": "Number_of_reviews",
             "type": "quantitative",
             "axis": {
-                "tickCount": 5
+                "tickCount": 5,
+                "range": [0,900]
             },
             "scale": {
                 "type": "log"
             },
             "title": "Number of reviews (Logarithmically scaled)"
+            
         },
         "y": {
             "timeUnit": "yearmonthdate",
