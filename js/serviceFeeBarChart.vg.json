@@ -11,7 +11,10 @@
     "x": {
       "field": "Neighbourhood_group",
       "type": "ordinal",
-      "title": "neighbourhood group"
+      "title": "neighbourhood group",
+      "axis": {
+        "labelAngle": -45
+      }
     },
     "y": {
       "aggregate": "median",
