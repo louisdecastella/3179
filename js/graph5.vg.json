@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 550,
   "height": 450,
-  "background":"whitesmoke",
+  "background": "whitesmoke",
   "title": "New york map of Airbnbs",
   "projection": {
     "type": "azimuthalEqualArea",
@@ -12,17 +12,27 @@
       0
     ]
   },
-    
   "signals": [
     {
-      "name": "selected", "value": null,
+      "name": "selected",
+      "value": null,
       "on": [
-        {"events": "symbol:mouseover", "update": "datum"},
-        {"events": "symbol:mouseout", "update": "null"}
+        {
+          "events": "symbol:mouseover",
+          "update": "datum"
+        },
+        {
+          "events": "symbol:mouseout",
+          "update": "null"
+        }
       ]
+    },
+    {
+      "name": "title",
+      "value": "U.S. Airports, 2008",
+      "update": "hover ? hover.name : 'Points of interest'"
     }
   ],
-
   "layer": [
     {
       "data": {
@@ -42,7 +52,6 @@
       "data": {
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
       },
-
       "mark": "circle",
       "encoding": {
         "longitude": {
@@ -56,26 +65,53 @@
       }
     },
     {
-            "data": {
-                "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
-            },
-            "mark": "circle",
-            "encoding": {
-                "longitude": 
-                {
-                    "field": "longitude",
-                    "type": "quantitative"
-                },
-                "latitude": 
-                {
-                    "field": "latitude",
-                    "type": "quantitative"
-                },
-                "color": {
-                  "value": "red"
-                  }
-            }
+      "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
+      },
+      "mark": "circle",
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "red"
         }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "interactive": false,
+        "encode": {
+          "enter": {
+            "x": {
+              "value": 450
+            },
+            "y": {
+              "value": 20
+            },
+            "fill": {
+              "value": "black"
+            },
+            "fontSize": {
+              "value": 20
+            },
+            "align": {
+              "value": "right"
+            }
+          },
+          "update": {
+            "text": {
+              "signal": "title"
+            }
+          }
+        }
+      }
+    }
   ]
-
 }
