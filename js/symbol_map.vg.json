@@ -62,6 +62,7 @@
   "layer": [
     {
       "data": {
+        "name": "map",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/new_york_map2.topojson",
         "format": {
           "type": "topojson",
@@ -76,32 +77,34 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/boroughs.csv",
-        "mark": "text",
-        "encoding": {
-          "text": {
-            "field": "boroughs.location",
-            "type": "nominal"
-          },
-          "longitude": {
-            "field": "boroughs.longitude",
-            "type": "quantitative"
-          },
-          "latitude": {
-            "field": "boroughs.latitude",
-            "type": "quantitative"
-          },
-          "size": {
-            "value": 10
-          },
-          "opacity": {
-            "value": 0.6
-          }
+        "name": "boroughs",
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/boroughs.csv"
+      },
+      "mark": "text",
+      "encoding": {
+        "text": {
+          "field": "location",
+          "type": "nominal"
+        },
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "value": 10
+        },
+        "opacity": {
+          "value": 0.6
         }
       }
     },
     {
       "data": {
+        "name": "airbnb",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
       },
       "transform": [
