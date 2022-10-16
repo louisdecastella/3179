@@ -34,9 +34,9 @@
       },
       {
         "aggregate": "median",
-        "field": "Price",
+        "field": "Service_fee",
         "type": "nominal",
-        "title": "Price: $"
+        "title": "Service fee: $"
       }
     ],
     "xOffset": {"field": "Room_Type"},
