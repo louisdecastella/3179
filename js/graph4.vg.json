@@ -4,7 +4,6 @@
     "height": 400,
     "background": "whitesmoke",
     "title": "Reviews",
-    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
     "data": {
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
     },
