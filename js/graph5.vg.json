@@ -50,6 +50,33 @@
     },
     {
       "data": {
+        "name": "boroughs",
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/boroughs.csv"
+      },
+      "mark": "text",
+      "encoding": {
+        "text": {
+          "field": "location",
+          "type": "nominal"
+        },
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "value": 10
+        },
+        "opacity": {
+          "value": 0.6
+        }
+      }
+    },
+    {
+      "data": {
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
       },
       "mark": "circle",
