@@ -11,7 +11,7 @@
     "x": {
       "field": "Neighbourhood_group",
       "type": "ordinal",
-      "title": "neighbourhood group",
+      "title": "Neighbourhood Group",
       "axis": {
         "labelAngle": -45
       }
@@ -19,7 +19,8 @@
     "y": {
       "aggregate": "median",
       "field": "Service_fee",
-      "type": "quantitative"
+      "type": "quantitative",
+      "title": "Median Price of Service Fee"
     },
     "tooltip": [
       {
