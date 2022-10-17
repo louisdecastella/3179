@@ -3,7 +3,7 @@
   "width": 550,
   "height": 450,
   "background": "whitesmoke",
-  "title": "New york map of Airbnbs",
+  "title": "distance to points of interest",
   "projection": {
     "type": "azimuthalEqualArea",
     "rotate": [
@@ -12,30 +12,10 @@
       0
     ]
   },
-  "signals": [
-    {
-      "name": "selected",
-      "value": null,
-      "on": [
-        {
-          "events": "symbol:mouseover",
-          "update": "datum"
-        },
-        {
-          "events": "symbol:mouseout",
-          "update": "null"
-        }
-      ]
-    },
-    {
-      "name": "title",
-      "value": "U.S. Airports, 2008",
-      "update": "hover ? hover.name : 'Points of interest'"
-    }
-  ],
   "layer": [
     {
       "data": {
+        "name": "map",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/new_york_map2.topojson",
         "format": {
           "type": "topojson",
@@ -76,10 +56,86 @@
       }
     },
     {
+      "mark": {
+        "type": "rule",
+        "color": "#000",
+        "opacity": 0.35
+      },
       "data": {
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/distances.csv"
+      },
+      "transform": [
+        {
+          "filter": {
+            "param": "org",
+            "empty": false
+          }
+        },
+        {
+          "lookup": "ID",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+            },
+            "key": "ID",
+            "fields": [
+              "Latitude",
+              "Longitude"
+            ]
+          }
+        },
+        {
+          "lookup": "poi",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
+            },
+            "key": "Name",
+            "fields": [
+              "latitude",
+              "longitude"
+            ]
+          },
+          "as": [
+            "lat2",
+            "lon2"
+          ]
+        }
+      ],
+      "encoding": {
+        "latitude": {
+          "field": "Latitude"
+        },
+        "longitude": {
+          "field": "Longitude"
+        },
+        "latitude2": {
+          "field": "lat2"
+        },
+        "longitude2": {
+          "field": "lon2"
+        }
+      }
+    },
+    {
+      "data": {
+        "name": "airbnb",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
       },
       "mark": "circle",
+      "params": [
+        {
+          "name": "org",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "nearest": true,
+            "fields": [
+              "ID"
+            ]
+          }
+        }
+      ],
       "encoding": {
         "longitude": {
           "field": "Longitude",
@@ -93,6 +149,7 @@
     },
     {
       "data": {
+        "name": "pointsofinterest",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
       },
       "mark": "circle",
@@ -107,36 +164,6 @@
         },
         "color": {
           "value": "red"
-        }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "interactive": false,
-        "encode": {
-          "enter": {
-            "x": {
-              "value": 450
-            },
-            "y": {
-              "value": 20
-            },
-            "fill": {
-              "value": "black"
-            },
-            "fontSize": {
-              "value": 20
-            },
-            "align": {
-              "value": "right"
-            }
-          },
-          "update": {
-            "text": {
-              "signal": "title"
-            }
-          }
         }
       }
     }
