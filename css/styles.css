@@ -11,8 +11,6 @@ h1 {
 	bottom: 120px;
 	left: 50px;
 	right: 50px;
-
-
 	align-self: center;
 }
 
@@ -37,6 +35,7 @@ h1 {
 	right: 50px;
 	align-self: center;
 }
+
 #poi {
 	top: 60px;
 	bottom: 40px;
