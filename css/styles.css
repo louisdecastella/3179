@@ -11,8 +11,8 @@ h1 {
 	bottom: 40px;
 	left: 50px;
 	right: 50px;
-	height: 40vw;
-	width: 20vw;
+	height: 40px;
+	width: 20px;
 	align-self: center;
 }
 
@@ -42,5 +42,7 @@ h1 {
 	bottom: 40px;
 	left: 50px;
 	right: 50px;
+	height: 40px;
+	width: 20px;
 	align-self: center;
 }
