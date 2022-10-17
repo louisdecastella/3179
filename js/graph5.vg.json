@@ -12,6 +12,19 @@
       0
     ]
   },
+  "params": [
+    {
+      "name": "dis",
+      "value": 60,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 60,
+        "step": 0.1,
+        "name": "distance (km): "
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
@@ -58,7 +71,7 @@
     {
       "mark": {
         "type": "rule",
-        "color": "#000",
+        "color": "black",
         "opacity": 0.35
       },
       "data": {
@@ -70,6 +83,9 @@
             "param": "org",
             "empty": false
           }
+        },
+        {
+          "filter": "datum.distance <= dis"
         },
         {
           "lookup": "ID",
@@ -152,7 +168,6 @@
         "name": "pointsofinterest",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/pointsofinterest.csv"
       },
-      "mark": "circle",
       "encoding": {
         "longitude": {
           "field": "longitude",
@@ -161,11 +176,28 @@
         "latitude": {
           "field": "latitude",
           "type": "quantitative"
-        },
-        "color": {
-          "value": "red"
         }
-      }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "color": "red"
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "dy": -10
+          },
+          "encoding": {
+            "text": {
+              "field": "Name",
+              "type": "nominal"
+            }
+          }
+        }
+      ]
     }
   ]
 }
