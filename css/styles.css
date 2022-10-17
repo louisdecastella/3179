@@ -37,11 +37,9 @@ h1 {
 
 #poi {
 	top: 60px;
-	bottom: 40px;
-	left: 50px;
-	right: 50px;
-	height: auto;
-
-
-	align-self: center;
+    bottom: 40px;
+    left: 50px;
+    right: 50px;
+    align-self: center;
+    height: 40vw;
 }
