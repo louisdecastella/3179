@@ -3,7 +3,7 @@
   "width": 550,
   "height": 450,
   "background": "whitesmoke",
-  "title": "distance to points of interest",
+  "title": "Sistance to Points of Interest",
   "projection": {
     "type": "azimuthalEqualArea",
     "rotate": [
