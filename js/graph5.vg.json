@@ -23,7 +23,32 @@
         "step": 0.1,
         "name": "distance (km): "
       }
-    }
+    },
+    {
+      "name": "poi",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Statue of Liberty",
+          "Central Park",
+          "Brooklyn Bridge",
+          "Empire State Building",
+          "Times Square",
+          "Muesem of New York"
+        ],
+        "labels": [
+          "All",
+          "Statue of Liberty",
+          "Central Park",
+          "Brooklyn Bridge",
+          "Empire State Building",
+          "Times Square",
+          "Muesem of New York"
+        ],
+        "name": "Location"
+      }
+    },
   ],
   "layer": [
     {
@@ -75,6 +100,7 @@
         "opacity": 0.35
       },
       "data": {
+        "name": "distances",
         "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/distances.csv"
       },
       "transform": [
@@ -88,10 +114,13 @@
           "filter": "datum.distance <= dis"
         },
         {
+          "filter": "poi == null || datum.poi == poi"
+        },
+        {
           "lookup": "ID",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+              "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/distances.csv"
             },
             "key": "ID",
             "fields": [
@@ -136,8 +165,16 @@
     {
       "data": {
         "name": "airbnb",
-        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/Airbnb_Open_Data.csv"
+        "url": "https://raw.githubusercontent.com/louisdecastella/3179/main/data/distances.csv"
       },
+      "transform": [
+        {
+          "filter": "datum.distance <= dis"
+        },
+        {
+          "filter": "poi == null || datum.poi == poi"
+        }
+      ],
       "mark": "circle",
       "params": [
         {
