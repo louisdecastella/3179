@@ -27,11 +27,12 @@ h1 {
 }
 
 #reviews {
-	top: 60px;
-	bottom: 40px;
-	left: 80px;
-	right: 50px;
-	align-self: center;
+	height: 38vw;
+    top: 50px;
+    bottom: 40px;
+    left: 150px;
+    right: 50px;
+    align-self: center;
 }
 
 #poi {
